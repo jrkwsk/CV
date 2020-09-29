@@ -39,10 +39,11 @@
         </div>
       </div>
       <br />
+
       <div class="container-fluid IT-section text-left my-5">
-        <div class="row">
-          <div class="col-2">
-            <p class id="id">IT_Education</p>
+        <div class="row my-5">
+          <div class="col-2 title">
+            <p class="it" :style="{paddingLeft: textPadding + 'px'}">IT_Education</p>
           </div>
           <div class="col-6">
             <div class="basic-info" v-for="value in it" :key="it.position">
@@ -59,33 +60,71 @@
           </div>
         </div>
       </div>
-      <hr />
+      <br />
+      <div class="container my-5 text-center projects-sections">
+        <h1>Projects</h1>
+        <div class="row">
+          <div class="col-6">
+            <Quiz></Quiz>
+          </div>
+
+          <div class="col-6">
+            <Quiz></Quiz>
+          </div>
+
+          <!-- <Portfolio-new></Portfolio-new>
+          <Portfolio-old></Portfolio-old>
+          <Musician></Musician>
+          <Novel></Novel>-->
+        </div>
+      </div>
+      <br />
       <div class="container experience-section text-left my-5">
-        <div class="col-9 offset-3">
-          <div class="basic-info" v-for="value in cv" :key="cv.position">
-            <span class="start-end">{{value.start}} - {{value.end}}</span>
-            <br />
-            <span class>{{value.position}} /</span>
-            <br />
-            <span class="important">{{value.company}} /</span>
-            <span class="minor">{{value.city}}, {{value.country}}</span>
-            <p class="about">{{value.description}}</p>
-            <p class="about">{{value.techStack}}</p>
+        <div class="row my-5">
+          <div class="col-9 offset-3">
+            <div class="basic-info" v-for="value in cv" :key="cv.position">
+              <span class="start-end">{{value.start}} - {{value.end}}</span>
+              <br />
+              <span class>{{value.position}} /</span>
+              <br />
+              <span class="important">{{value.company}} /</span>
+              <span class="minor">{{value.city}}, {{value.country}}</span>
+              <p class="about">{{value.description}}</p>
+              <p class="about">{{value.techStack}}</p>
+            </div>
           </div>
         </div>
+      </div>
+
+      <div class="container my-5 contact-section">
+        <div class="row"></div>
+      </div>
+      <div class="container my-5 like-section">
+        <div class="row"></div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Quiz from "./components/Quiz.vue";
+// import PortfolioNew from PortfolioNew.vue
+// import PortfolioOld from PortfolioOld.vue
+// import Musician from Musician.vue
+// import Novel from Novel.vue
+
 export default {
   name: "app",
+  components: {
+    Quiz
+    // ,PortfolioNew, PortfolioOld, Musician, Novel
+  },
   data() {
     return {
       step: 1,
       setOpacity: 0,
       imagePadding: 1,
+      textPadding: 500,
       it: [
         {
           position:
@@ -230,6 +269,11 @@ export default {
 
       //slower img moving depending on scrol x padding-top
       this.imagePadding = imagePosition / 50;
+
+      const textPosition = document
+        .querySelector("div.title")
+        .getBoundingClientRect().top;
+      this.textPadding = textPosition - middle;
     }
   }
 };
@@ -269,7 +313,6 @@ h1 {
   transform: rotate(90deg);
   font-weight: 700;
   font-size: 5rem;
-  position: absolute;
   left: 0;
   // mix-blend-mode: screen;
   // margin: -5rem -0 0 0;
@@ -396,6 +439,7 @@ p.about {
   font-family: $font-secondary;
   font-weight: 100;
   margin-top: 1rem;
+  line-height: 2;
 }
 
 div.basic-info {
@@ -412,5 +456,13 @@ img.portrait {
 
 img.wrapper {
   padding: 100px;
+}
+
+.it {
+  color: pink;
+  transform: rotate(90deg);
+  font-weight: 700;
+  font-size: 3rem;
+  transition: all 2s;
 }
 </style>

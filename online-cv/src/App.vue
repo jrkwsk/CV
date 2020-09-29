@@ -62,15 +62,9 @@
       </div>
       <br />
       <div class="container my-5 text-center projects-sections">
-        <h1>Projects</h1>
+        <h1>Projects - web</h1>
         <div class="row">
-          <div class="col-6">
-            <Quiz></Quiz>
-          </div>
-
-          <div class="col-6">
-            <Quiz></Quiz>
-          </div>
+          <Project v-for="project in projects" :project="project"></Project>
 
           <!-- <Portfolio-new></Portfolio-new>
           <Portfolio-old></Portfolio-old>
@@ -80,6 +74,7 @@
       </div>
       <br />
       <div class="container experience-section text-left my-5">
+        <h1>Professional Experience</h1>
         <div class="row my-5">
           <div class="col-9 offset-3">
             <div class="basic-info" v-for="value in cv" :key="cv.position">
@@ -96,18 +91,30 @@
         </div>
       </div>
 
-      <div class="container my-5 contact-section">
-        <div class="row"></div>
-      </div>
-      <div class="container my-5 like-section">
-        <div class="row"></div>
+      <div class="container-fluid my-5 contact-section">
+        <hr />
+        <div class="row text-left">
+          <div class="col-2 offset-1">
+            <h1>Contact:</h1>
+          </div>
+          <div class="col-4">
+            <p>u.jrkwsk@wp.pl</p>
+
+            <p>https://github.com/jrkwsk</p>
+
+            <p>https://www.linkedin.com/in/ula-jurkowska-27217830</p>
+          </div>
+          <div class="col-4">
+            <p>Wyrażam zgodę na przetwarzanie moich danych osobowych przez firmy zarejestrowane w Polsce w celu prowadzenia rekrutacji na stanowisko Frontend Developer lub pokrewne</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Quiz from "./components/Quiz.vue";
+import Project from "./components/Project.vue";
 // import PortfolioNew from PortfolioNew.vue
 // import PortfolioOld from PortfolioOld.vue
 // import Musician from Musician.vue
@@ -116,7 +123,7 @@ import Quiz from "./components/Quiz.vue";
 export default {
   name: "app",
   components: {
-    Quiz
+    Project
     // ,PortfolioNew, PortfolioOld, Musician, Novel
   },
   data() {
@@ -125,6 +132,116 @@ export default {
       setOpacity: 0,
       imagePadding: 1,
       textPadding: 500,
+      projects: [
+        {
+          name: "Quiz - app",
+          stack: "VUE CLI, Vanilla JS, SASS, Bootstrap, Firebase",
+          status: "ongoing",
+          img:
+            "https://images.unsplash.com/photo-1532190370294-e81fe487b61a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          demo: "demo",
+          github: "github",
+          task: "code & design",
+          button1: "demo",
+          button2: "code"
+        },
+        {
+          name: "Portfolio 2020",
+          stack: "VUE CLI, Vanilla JS, SASS, Bootstrap",
+          status: "ongoing",
+          img:
+            "https://images.unsplash.com/photo-1532190370294-e81fe487b61a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          demo: "demo",
+          github: "github",
+          task: "code & design",
+          button1: "demo",
+          button2: "code"
+        },
+        {
+          name: "Maptu (2020)",
+          stack: "XD, Photoshop",
+          status: "finished",
+          img:
+            "https://images.unsplash.com/photo-1532190370294-e81fe487b61a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          demo: "https://maptu.pl/",
+          github: "not available",
+          task: "design only",
+          button1: "demo",
+          button2: "project"
+        },
+        {
+          name: "Maptu (2019)",
+          stack: "Vanilla JS, Bootstrap, Photoshop",
+          status: "finished",
+          img:
+            "https://images.unsplash.com/photo-1532190370294-e81fe487b61a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          demo: "demo",
+          github: "github",
+          task: "code & design",
+          button1: "demo",
+          button2: "code"
+        },
+        {
+          name: "Maptu Shop (2019)",
+          stack: "Woocommerce",
+          status: "finished",
+          img:
+            "https://images.unsplash.com/photo-1532190370294-e81fe487b61a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          demo: "demo",
+          github: "github",
+          task: "code & design",
+          button1: "demo",
+          button2: "code"
+        },
+        {
+          name: "Maptu (2015)",
+          stack: "Photoshop",
+          status: "finished",
+          img:
+            "https://images.unsplash.com/photo-1532190370294-e81fe487b61a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          demo: "demo",
+          github: "github",
+          task: "design only",
+          button1: "demo",
+          button2: "project"
+        },
+        {
+          name: "Musician (2019)",
+          stack: "VUE CLI, Vanilla JS, SASS, Bootstrap",
+          status: "ongoing",
+          img:
+            "https://images.unsplash.com/photo-1532190370294-e81fe487b61a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          demo: "demo",
+          github: "github",
+          task: "code & design",
+          button1: "demo",
+          button2: "code"
+        },
+        {
+          name: "Portfolio (2018)",
+          stack: "Vanilla JS, Bootstrap",
+          status: "finished",
+          img:
+            "https://images.unsplash.com/photo-1532190370294-e81fe487b61a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          demo: "demo",
+          github: "github",
+          task: "code & design",
+          button1: "demo",
+          button2: "code"
+        },
+        {
+          name: "Novel (2018)",
+          stack: "Vanilla JS, Bootstrap",
+          status: "to be updated",
+          img:
+            "https://images.unsplash.com/photo-1532190370294-e81fe487b61a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          demo: "http://www.bluetongue.me/",
+          github: "github",
+          task: "code & design",
+          button1: "demo",
+          button2: "code"
+        }
+      ],
       it: [
         {
           position:
@@ -439,7 +556,7 @@ p.about {
   font-family: $font-secondary;
   font-weight: 100;
   margin-top: 1rem;
-  line-height: 2;
+  line-height: 3;
 }
 
 div.basic-info {

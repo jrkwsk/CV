@@ -6,7 +6,7 @@ import App from './App.vue'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
-import Quiz from "./components/Quiz.vue";
+import Project from "./components/Project.vue";
 
 
 Vue.use(BootstrapVue);

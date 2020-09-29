@@ -1,21 +1,27 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper col-6">
     <div class="container my-5">
-      <img class="w-100 h-100 project-img" src="../assets/bg_0007.jpg" alt />
+      <img class="w-100 h-100 project-img" :src="project.img" />
       <div class="overlay">
-        <p class="name">Quiz-app</p>
-        <button class="more">demo</button>
-        <button class="more">github</button>
+        <p class="name">see more:</p>
+        <a :href="project.demo" target="_blank">
+          <button class="more">{{project.button1}}</button>
+        </a>
+        <a :href="project.github" target="_blank">
+          <button class="more">{{project.button2}}</button>
+        </a>
       </div>
-      <span class="title">Quiz-app /</span>
-      <span class="comment">ongoing</span>
-      <p class="stack">VUE CLI, Vanilla JS, SASS, Bootstrap</p>
-      <p class="task">code&design</p>
+      <span class="title">{{project.name}} /</span>
+      <span class="comment">{{project.status}}</span>
+      <p class="stack">{{project.stack}}</p>
+      <p class="task">{{project.task}}</p>
     </div>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  props: ["project"]
+};
 </script>
 <style lang="scss" scoped>
 // to do: globalize this variables:
@@ -47,7 +53,7 @@ div.overlay {
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 div.overlay:hover {
   opacity: 1;

@@ -99,9 +99,7 @@
           </div>
           <div class="col-4">
             <p>u.jrkwsk@wp.pl</p>
-
             <p>https://github.com/jrkwsk</p>
-
             <p>https://www.linkedin.com/in/ula-jurkowska-27217830</p>
           </div>
           <div class="col-4">
@@ -139,8 +137,8 @@ export default {
           status: "ongoing",
           img:
             "https://images.unsplash.com/photo-1532190370294-e81fe487b61a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-          demo: "demo",
-          github: "github",
+          demo: false,
+          github: "https://github.com/jrkwsk/billenn-quiz",
           task: "code & design",
           button1: "demo",
           button2: "code"
@@ -151,7 +149,7 @@ export default {
           status: "ongoing",
           img:
             "https://images.unsplash.com/photo-1532190370294-e81fe487b61a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-          demo: "demo",
+          demo: "http://jrkwsk.pl/portfolio2020/",
           github: "github",
           task: "code & design",
           button1: "demo",
@@ -164,7 +162,7 @@ export default {
           img:
             "https://images.unsplash.com/photo-1532190370294-e81fe487b61a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
           demo: "https://maptu.pl/",
-          github: "not available",
+          github: false,
           task: "design only",
           button1: "demo",
           button2: "project"

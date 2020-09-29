@@ -3,11 +3,11 @@
     <div class="container my-5">
       <img class="w-100 h-100 project-img" :src="project.img" />
       <div class="overlay">
-        <p class="name">see more:</p>
-        <a :href="project.demo" target="_blank">
+        <!-- <p class="name">see more:</p> -->
+        <a :href="project.demo" target="_blank" v-show="project.demo">
           <button class="more">{{project.button1}}</button>
         </a>
-        <a :href="project.github" target="_blank">
+        <a :href="project.github" target="_blank" v-show="project.github">
           <button class="more">{{project.button2}}</button>
         </a>
       </div>
@@ -48,7 +48,7 @@ img {
 div.overlay {
   font-size: 3rem;
   position: absolute;
-  top: 20%;
+  top: 30%;
   left: 0;
   width: 100%;
   height: 100%;
@@ -85,13 +85,14 @@ button.more:active {
   top: 1px;
 }
 
-p.stack {
+p.stack,
+p.task {
   font-family: $font-secondary;
   font-weight: 100;
 }
 
 p.task {
-  font-size: 0.7rem;
+  font-size: 0.9rem;
 }
 span.comment {
   font-size: 1rem;

@@ -73,6 +73,20 @@
           <Project v-for="project in projects" :project="project"></Project>
         </div>
       </div>
+      <div class="container my-5 text-center github-sections">
+        <h1>Otther coding projects</h1>
+        <div class="text-left d-flex justify-content-around" v-for="item in github">
+          <p>{{item.name}}</p>
+          <span>/</span>
+          <p>{{item.description}}</p>
+          <span>/</span>
+          <p>{{item.stack}}</p>
+          <span>/</span>
+          <p>
+            <a :href="item.link">more</a>
+          </p>
+        </div>
+      </div>
       <br />
       <div class="container experience-section text-left my-5">
         <h1>Professional Experience</h1>
@@ -132,6 +146,11 @@ export default {
       setOpacity: 0,
       imagePadding: 1,
       textPadding: 500,
+      github: [
+        { name: "xxx", link: "xxx", description: "xxx", stack: "JS" },
+        { name: "yyy", link: "xxyx", description: "yyxxx", stack: "JS" },
+        { name: "zzz", link: "xxzx", description: "xxzzx", stack: "JS" }
+      ],
       projects: [
         {
           name: "Quiz - app",

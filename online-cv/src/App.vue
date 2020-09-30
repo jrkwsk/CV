@@ -26,8 +26,14 @@
           <span class="important">SASS</span>, Wordpress, WooCommerce,
           <span class="important">Rest API</span>, GIT, VS Code
         </h4>
-        <h4 class="secondary-skills mt-5">Photoshop, Ilustrator, inDesign, XD</h4>
-        <h4 class="secondary-skills mt-5">English C1, French C1/B2, Spanish C1/B2 & Polish native</h4>
+        <h4 class="secondary-skills mt-5">
+          Photoshop, Ilustrator, inDesign,
+          <span class="important">XD</span>
+        </h4>
+        <h4 class="secondary-skills mt-5">
+          English C1, French C1/B2, Spanish C1/B2
+          <span class="important">&</span> Polish native
+        </h4>
         <p
           class="mt-5 about"
         >I am a Psychologist, Public Relations Manager, Graphic Designer and Web Developer. I speak Polish, English, French and Spanish. I try to make use of my various experiences in web development. I have participated in digital projects from different perspectives - as a user, ordering entity, designer and coder. I believe my past roles give me a broad look on the work of web developer being part of a team that delivers complex services to the client.</p>
@@ -65,11 +71,6 @@
         <h1>Projects - web</h1>
         <div class="row">
           <Project v-for="project in projects" :project="project"></Project>
-
-          <!-- <Portfolio-new></Portfolio-new>
-          <Portfolio-old></Portfolio-old>
-          <Musician></Musician>
-          <Novel></Novel>-->
         </div>
       </div>
       <br />
@@ -113,6 +114,7 @@
 
 <script>
 import Project from "./components/Project.vue";
+
 // import PortfolioNew from PortfolioNew.vue
 // import PortfolioOld from PortfolioOld.vue
 // import Musician from Musician.vue
@@ -135,11 +137,10 @@ export default {
           name: "Quiz - app",
           stack: "VUE CLI, Vanilla JS, SASS, Bootstrap, Firebase",
           status: "ongoing",
-          img:
-            "https://images.unsplash.com/photo-1532190370294-e81fe487b61a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          img: "http://jrkwsk.pl/img/c.jpg",
           demo: false,
           github: "https://github.com/jrkwsk/billenn-quiz",
-          task: "code & design",
+          task: "code",
           button1: "demo",
           button2: "code"
         },
@@ -147,9 +148,8 @@ export default {
           name: "Portfolio 2020",
           stack: "VUE CLI, Vanilla JS, SASS, Bootstrap",
           status: "ongoing",
-          img:
-            "https://images.unsplash.com/photo-1532190370294-e81fe487b61a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-          demo: "http://jrkwsk.pl/portfolio2020/",
+          img: "http://jrkwsk.pl/img/c.jpg",
+          demo: false,
           github: "github",
           task: "code & design",
           button1: "demo",
@@ -158,22 +158,20 @@ export default {
         {
           name: "Maptu (2020)",
           stack: "XD, Photoshop",
-          status: "finished",
-          img:
-            "https://images.unsplash.com/photo-1532190370294-e81fe487b61a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          status: "to be published",
+          img: "http://jrkwsk.pl/img/c.jpg",
           demo: "https://maptu.pl/",
           github: false,
           task: "design only",
-          button1: "demo",
+          button1: "website",
           button2: "project"
         },
         {
           name: "Maptu (2019)",
           stack: "Vanilla JS, Bootstrap, Photoshop",
           status: "finished",
-          img:
-            "https://images.unsplash.com/photo-1532190370294-e81fe487b61a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-          demo: "demo",
+          img: "http://jrkwsk.pl/img/c.jpg",
+          demo: "http://jrkwsk.pl/maptu2019",
           github: "github",
           task: "code & design",
           button1: "demo",
@@ -183,8 +181,7 @@ export default {
           name: "Maptu Shop (2019)",
           stack: "Woocommerce",
           status: "finished",
-          img:
-            "https://images.unsplash.com/photo-1532190370294-e81fe487b61a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          img: "http://jrkwsk.pl/img/c.jpg",
           demo: "demo",
           github: "github",
           task: "code & design",
@@ -195,8 +192,7 @@ export default {
           name: "Maptu (2015)",
           stack: "Photoshop",
           status: "finished",
-          img:
-            "https://images.unsplash.com/photo-1532190370294-e81fe487b61a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          img: "http://jrkwsk.pl/img/c.jpg",
           demo: "demo",
           github: "github",
           task: "design only",
@@ -207,8 +203,7 @@ export default {
           name: "Musician (2019)",
           stack: "VUE CLI, Vanilla JS, SASS, Bootstrap",
           status: "ongoing",
-          img:
-            "https://images.unsplash.com/photo-1532190370294-e81fe487b61a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          img: "http://jrkwsk.pl/img/c.jpg",
           demo: "demo",
           github: "github",
           task: "code & design",
@@ -219,8 +214,7 @@ export default {
           name: "Portfolio (2018)",
           stack: "Vanilla JS, Bootstrap",
           status: "finished",
-          img:
-            "https://images.unsplash.com/photo-1532190370294-e81fe487b61a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          img: "http://jrkwsk.pl/img/c.jpg",
           demo: "demo",
           github: "github",
           task: "code & design",
@@ -231,8 +225,7 @@ export default {
           name: "Novel (2018)",
           stack: "Vanilla JS, Bootstrap",
           status: "to be updated",
-          img:
-            "https://images.unsplash.com/photo-1532190370294-e81fe487b61a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          img: "http://jrkwsk.pl/img/c.jpg",
           demo: "http://www.bluetongue.me/",
           github: "github",
           task: "code & design",
@@ -487,7 +480,7 @@ span {
 }
 
 h4.main-skills {
-  margin-top: 25vh;
+  margin-top: 15vh;
   color: $color-primary;
   font-size: 2rem;
 }

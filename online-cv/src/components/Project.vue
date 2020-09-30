@@ -1,9 +1,28 @@
 <template>
   <div class="wrapper col-6">
     <div class="container my-5">
+      <div class="buttons-wrapper">
+        <a :href="project.demo" target="_blank" v-show="project.demo">
+          <button class="more m-2">{{project.button1}}</button>
+        </a>
+        <a :href="project.github" target="_blank" v-show="project.github">
+          <button class="more m-2">{{project.button2}}</button>
+        </a>
+      </div>
+
+      <div class="description">
+        <span class="title">{{project.name}} /</span>
+        <span class="comment">{{project.status}}</span>
+        <p class="stack">{{project.stack}}</p>
+        <p class="task">{{project.task}}</p>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="wrapper col-6">
+    <div class="container my-5">
       <img class="w-100 h-100 project-img" :src="project.img" />
       <div class="overlay">
-        <!-- <p class="name">see more:</p> -->
+        <p class="name">see more:</p>
         <a :href="project.demo" target="_blank" v-show="project.demo">
           <button class="more">{{project.button1}}</button>
         </a>
@@ -16,7 +35,7 @@
       <p class="stack">{{project.stack}}</p>
       <p class="task">{{project.task}}</p>
     </div>
-  </div>
+  </div>-->
 </template>
 <script>
 export default {
@@ -42,13 +61,14 @@ div.container {
   margin: 0 auto;
 }
 
-img {
-  display: block;
-}
+// img {
+//   display: block;
+// }
+
 div.overlay {
   font-size: 3rem;
   position: absolute;
-  top: 30%;
+  top: 25%;
   left: 0;
   width: 100%;
   height: 100%;
@@ -58,27 +78,28 @@ div.overlay {
 div.overlay:hover {
   opacity: 1;
 }
+
 button.more {
   font-family: $font-secondary;
-  color: $color-secondary-4;
+  color: transparent;
   font-weight: 300;
   font-style: normal;
   font-size: 0.8rem;
   transition: all 1s;
   background-color: transparent;
-  border-radius: 6px;
-  border: 1px solid $color-secondary-4;
+  border: 1px solid $color-secondary;
   display: inline-block;
   cursor: pointer;
   font-size: 15px;
   font-weight: bold;
   padding: 1rem 2rem;
   text-decoration: none;
+  width: 10rem;
 }
 
 button.more:hover {
-  background-color: $color-secondary-4;
-  color: $color-secondary-3;
+  color: $color-secondary-4;
+  background-color: $color-primary;
 }
 button.more:active {
   position: relative;

@@ -8,7 +8,6 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 import Project from "./components/Project.vue";
 
-
 Vue.use(BootstrapVue);
 
 new Vue({

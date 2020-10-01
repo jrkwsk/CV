@@ -6,10 +6,10 @@
       </div>
       <div class="secondary-text d-flex justify-content-center align-items-end">
         <h2 class="roles">
-          <span>/</span>Developer
-          <span>/</span>Designer
-          <span>/</span>Project_Manager
-          <span>/</span>
+          <p>Developer</p>
+          <p>Designer</p>
+          <p>Project_Manager</p>
+          
         </h2>
       </div>
       <div class="d-flex justify-content-center align-items-end m-5">
@@ -18,7 +18,7 @@
     </div>
     <div class="middle" id="middle"></div>
     <div class="wrapper-next" v-show="step===2">
-      <p>Ula_Jurkowska_CV_late_2020</p>
+      <p class="document-title">Ula_Jurkowska_CV_late_2020</p>
       <div class="container">
         <h4 class="main-skills">
           <span class="important">VUE CLI</span>,
@@ -49,7 +49,7 @@
       <div class="container-fluid IT-section text-left my-5">
         <div class="row my-5">
           <div class="col-2 title">
-            <p class="it" :style="{paddingLeft: textPadding + 'px'}">IT_Education</p>
+            <h1 class="it" id="it" :style="{paddingLeft: textPadding + 'rem'}">IT_Education</h1>
           </div>
           <div class="col-6">
             <div class="basic-info" v-for="value in it" :key="it.position">
@@ -73,18 +73,21 @@
           <Project v-for="project in projects" :project="project"></Project>
         </div>
       </div>
-      <div class="container my-5 text-center github-sections">
-        <h1>Otther coding projects</h1>
-        <div class="text-left d-flex justify-content-around" v-for="item in github">
-          <p>{{item.name}}</p>
-          <span>/</span>
-          <p>{{item.description}}</p>
-          <span>/</span>
-          <p>{{item.stack}}</p>
-          <span>/</span>
-          <p>
-            <a :href="item.link">more</a>
-          </p>
+      <div class="container my-5 text-center other">
+        <h1>Other coding projects</h1>
+        <div
+          class="text-left d-flex justify-content-around github-sections"
+          v-for="item in github"
+          :key="item.name"
+          
+        >
+          <a :href="item.link" target="_blank" @mouseover="moveDots($event)">
+            <p class="project-name px-3 my-5" >{{item.name}}</p>
+          </a>
+          <span class="dot my-5"></span>
+          <p class="my-5">{{item.description}}</p>
+          <p class="my-5">/</span>
+          <p class="my-5">{{item.stack}}</p>
         </div>
       </div>
       <br />
@@ -110,15 +113,16 @@
         <hr />
         <div class="row text-left">
           <div class="col-2 offset-1">
-            <h1>Contact:</h1>
+            <h1 class="contact">Contact</h1>
           </div>
-          <div class="col-4">
-            <p>u.jrkwsk@wp.pl</p>
-            <p>https://github.com/jrkwsk</p>
-            <p>https://www.linkedin.com/in/ula-jurkowska-27217830</p>
+          <div class="col-3 offset-1">
+            <ul class="list-unstyled">
+              <li>u.jrkwsk@wp.pl</li>
+            <li>https://github.com/jrkwsk</li><li>https://www.linkedin.com/in/ula-jurkowska-27217830</li>
+            </ul>
           </div>
-          <div class="col-4">
-            <p>Wyrażam zgodę na przetwarzanie moich danych osobowych przez firmy zarejestrowane w Polsce w celu prowadzenia rekrutacji na stanowisko Frontend Developer lub pokrewne</p>
+          <div class="col-4 consent">
+            <p class="font-italic">Wyrażam zgodę na przetwarzanie moich danych osobowych przez firmy zarejestrowane w Polsce w celu prowadzenia rekrutacji na stanowisko Frontend Developer lub pokrewne</p>
           </div>
         </div>
       </div>
@@ -138,18 +142,98 @@ export default {
   name: "app",
   components: {
     Project
-    // ,PortfolioNew, PortfolioOld, Musician, Novel
   },
   data() {
     return {
       step: 1,
       setOpacity: 0,
       imagePadding: 1,
-      textPadding: 500,
+      textPadding: 10,
       github: [
-        { name: "xxx", link: "xxx", description: "xxx", stack: "JS" },
-        { name: "yyy", link: "xxyx", description: "yyxxx", stack: "JS" },
-        { name: "zzz", link: "xxzx", description: "xxzzx", stack: "JS" }
+        {
+          name: "Image search with NASA API",
+          link: "https://github.com/jrkwsk/vue-app-nasa",
+          description: "educational project with Hello Roman",
+          stack: "VUE, JS, RESTAPI, ANXIOS "
+        },
+        {
+          name: "Photo slider",
+          link: "https://github.com/jrkwsk/vue-slider-app",
+          description: "educational project with P.Palarz",
+          stack: "VUE"
+        },
+        {
+          name: "Stocks app",
+          link: "https://github.com/jrkwsk/angularapp1",
+          description: "first project to get familiar with Angular",
+          stack: "ANGULAR"
+        },
+        {
+          name: "Simple form",
+          link: "https://github.com/jrkwsk/vue-form",
+          description: "educational project on inputs in Vue",
+          stack: "VUE"
+        },
+        {
+          name: "The Witcher game ;)",
+          link: "https://github.com/jrkwsk/vuegame",
+          description: "simple game in VUE",
+          stack: "VUE"
+        },
+        {
+          name: "Photo search",
+          link: "https://github.com/jrkwsk/rest-api-unsplash",
+          description: "photosearch with Unsplash API",
+          stack: "REST API"
+        },
+        {
+          name: "Some scroll animations",
+          link: "https://github.com/jrkwsk/scrolleffects",
+          description: "excesise on animations with JS",
+          stack: "HTML, CSS, JS"
+        },
+        {
+          name: "Recipes app",
+          link: "https://github.com/jrkwsk/recipesapp",
+          description: "first project to get familiar with React",
+          stack: "REACT"
+        },
+        {
+          name: "3D models with JS",
+          link: "https://github.com/jrkwsk/openjscad",
+          description: "project to get familiar with OpenJSCAD",
+          stack: "OpenJSCAD"
+        },
+        {
+          name: "Flying dots",
+          link: "https://github.com/jrkwsk/easejs_ex/",
+          description: "project to get familiar with CREATEJS",
+          stack: "CREATEJS"
+        },
+        {
+          name: "Ticking clock",
+          link: "https://github.com/jrkwsk/clock",
+          description: "traditional clock coded in JS",
+          stack: "JS"
+        },
+        {
+          name: "Simple photo- gallery",
+          link: "https://github.com/jrkwsk/gallery",
+          description: "gallery - SEO purposes",
+          stack: "BOOTSTRAP"
+        },
+        {
+          name: "E-commerce banner",
+          link: "https://github.com/jrkwsk/task_jquery/",
+          description: "recruitment tasked for JQUERY usage",
+          stack: "JQUERY"
+        },
+        {
+          name: "Openstreetmap app",
+          link: "https://github.com/jrkwsk/map",
+          description: "getting familiar with a popular map library",
+          stack: "LEAFLET"
+        }
       ],
       projects: [
         {
@@ -191,7 +275,7 @@ export default {
           status: "finished",
           img: "http://jrkwsk.pl/img/c.jpg",
           demo: "http://jrkwsk.pl/maptu2019",
-          github: "github",
+          github: "https://github.com/jrkwsk/commercialproject1",
           task: "code & design",
           button1: "demo",
           button2: "code"
@@ -366,29 +450,18 @@ export default {
   },
   methods: {
     moveElements(event) {
+      //animate elements when they reach the middle of window
       const middle = document.getElementById("middle").getBoundingClientRect()
         .top;
       let elementsAnimated = Array.from(
         document.getElementsByClassName("start-end")
       );
-      elementsAnimated.forEach(
-        elem =>
-          elem.getBoundingClientRect().top < middle
-            ? elem.classList.add("animated")
-            : console.log("error")
-        // console.log(elem.getBoundingClientRect().top)
-        // elem.classList.add("red")
+      elementsAnimated.forEach(elem =>
+        elem.getBoundingClientRect().top < middle
+          ? elem.classList.add("animated")
+          : console.log("error")
       );
-      // if ((elem.getBoundingClientRect().top = window.innerHeight() / 2)) {
-      //   elem.classList.add("red");
-      // }
-
-      // console.log(event.target.scrollTop);
-
-      // let scrollTarget = event.target;
-      // console.log(scrollTarget.scrollTop);
-      // console.log(scrollTarget.scrollHeight);
-      // console.log(scrollTarget.clientHeight);
+      //change opacity while scrolling
       const imagePosition = document
         .querySelector("img")
         .getBoundingClientRect().bottom;
@@ -397,10 +470,21 @@ export default {
       //slower img moving depending on scrol x padding-top
       this.imagePadding = imagePosition / 50;
 
-      const textPosition = document
-        .querySelector("div.title")
-        .getBoundingClientRect().top;
-      this.textPadding = textPosition - middle;
+      this.textPadding = this.textPadding - 0.1;
+
+      let textIt = document.getElementById("it");
+
+      if (textIt.getBoundingClientRect().bottom < -200) {
+        textIt.style.position = "relative";
+        textIt.removeAttribute("id");
+        textIt.style.transform = "rotate(90deg)";
+        textIt.style.opacity = 0.2;
+      }
+    },
+    moveDots($event) {
+      let dot1 = $event.target.nextElementSibling;
+      dot1.classList.toggle("pulse");
+      console.log(dot1);
     }
   }
 };
@@ -414,6 +498,10 @@ $color-secondary-3: #a6a6a6;
 $color-secondary-2: #737373;
 $color-secondary: #404040;
 $color-primary: #0d0d0d;
+$navy: #2a435b;
+$blue: #85a8be;
+$yellow: #f1bd5a;
+$orange: #f2ab59;
 
 #app {
   font-family: curve, serif;
@@ -427,7 +515,20 @@ $color-primary: #0d0d0d;
   height: 100vh;
   transition: all 1s;
   overflow-x: hidden;
+  background-color: $color-secondary-4;
 }
+
+//first slaid
+
+div.wrapper-start{
+  background-color: $color-secondary-4;
+  h2.roles {  background-color: $color-secondary-4;
+
+  p 
+    {color: $orange}}
+}
+
+//second slide
 
 div.main-text {
   height: 40vh;
@@ -436,17 +537,7 @@ h1 {
   font-weight: normal;
   font-size: 4rem;
 }
-#id {
-  transform: rotate(90deg);
-  font-weight: 700;
-  font-size: 5rem;
-  left: 0;
-  // mix-blend-mode: screen;
-  // margin: -5rem -0 0 0;
-  // color: $color-secondary-2;
-  color: pink;
-  // opacity: 0.1;
-}
+
 h2 {
   color: black;
   mix-blend-mode: lighten;
@@ -509,7 +600,7 @@ h4.secondary-skills {
 
 span.important {
   font-size: 3rem;
-  color: $color-secondary-3;
+  color: $yellow;
 }
 
 div.hor-line {
@@ -534,10 +625,10 @@ h2.roles {
 }
 
 div.middle {
-  width: 10px;
-  height: 10px;
+  width: 1px;
+  height: 1px;
   position: fixed;
-  background: blue;
+  background: transparent;
   margin: 0 auto;
   top: 50%;
   left: 50%;
@@ -585,11 +676,72 @@ img.wrapper {
   padding: 100px;
 }
 
-.it {
+#it {
   color: pink;
   transform: rotate(90deg);
   font-weight: 700;
   font-size: 3rem;
-  transition: all 2s;
+  transition: all 1s;
+}
+
+div.github-sections {
+  font-family: $font-secondary;
+}
+
+span.dot {
+  height: 10px;
+  width: 10px;
+  background-color: $orange;
+  border-radius: 50%;
+  display: inline-block;
+}
+p.project-name {
+  background-color: $color-primary;
+  color: $color-secondary-4;
+}
+
+div.arrow-right {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid $color-secondary-2;
+}
+
+h1.it {
+  transition: opacity 2s;
+}
+p.document-title {
+  position: fixed;
+  top: 0
+}
+span.pulse {
+  animation: pulse-red 5s infinite;
+  transition: all 1s;
+}
+
+h1.contact{
+    color: $color-secondary-2;
+}
+
+div.consent {
+  color: $color-secondary-3; 
+}
+
+@keyframes pulse-red {
+  0% {
+    transform: scale(2);
+    box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
+  }
+
+  10% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+  }
+
+  100% {
+    transform: scale(2);
+    box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+  }
 }
 </style>

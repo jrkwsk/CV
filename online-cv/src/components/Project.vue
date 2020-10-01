@@ -3,10 +3,10 @@
     <div class="container my-5">
       <div class="buttons-wrapper">
         <a :href="project.demo" target="_blank" v-show="project.demo">
-          <button class="more m-2">{{project.button1}}</button>
+          <p class="more px-3 my-5">{{project.button1}}</p>
         </a>
         <a :href="project.github" target="_blank" v-show="project.github">
-          <button class="more m-2">{{project.button2}}</button>
+          <p class="more px-3 my-5">{{project.button2}}</p>
         </a>
       </div>
 
@@ -39,7 +39,14 @@
 </template>
 <script>
 export default {
-  props: ["project"]
+  props: ["project"],
+  methods: {
+    buttonAnimation() {
+      const buttons = Array.from(document.getElementsByClassName("more"));
+      console.log(buttons + "btnn anim");
+      buttons.forEach(elem => elem.classList.addClass("animated"));
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -51,6 +58,10 @@ $color-secondary-3: #a6a6a6;
 $color-secondary-2: #737373;
 $color-secondary: #404040;
 $color-primary: #0d0d0d;
+$navy: #2a435b;
+$blue: #85a8be;
+$yellow: #f1bd5a;
+$orange: #f2ab59;
 
 p.name {
   color: $color-secondary-4;
@@ -79,31 +90,39 @@ div.overlay:hover {
   opacity: 1;
 }
 
-button.more {
+p.more {
   font-family: $font-secondary;
-  color: transparent;
+  color: $color-primary;
   font-weight: 300;
   font-style: normal;
   font-size: 0.8rem;
-  transition: all 1s;
+  transition: all 0.7s;
   background-color: transparent;
-  border: 1px solid $color-secondary;
+  border: 1px solid $color-primary;
+  border-right: 1px solid transparent;
+
   display: inline-block;
   cursor: pointer;
   font-size: 15px;
   font-weight: bold;
-  padding: 1rem 2rem;
   text-decoration: none;
-  width: 10rem;
+  // border-left: 40px solid transparent;
 }
 
-button.more:hover {
-  color: $color-secondary-4;
-  background-color: $color-primary;
+p.more:hover {
+  color: $color-primary;
+  background-color: transparent;
+  // border: 1px solid transparent;
+  border-right: 15px solid $yellow;
 }
-button.more:active {
+p.more:active {
   position: relative;
   top: 1px;
+}
+
+.animated {
+  color: $color-secondary-4;
+  background-color: $color-primary;
 }
 
 p.stack,

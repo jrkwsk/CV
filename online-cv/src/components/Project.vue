@@ -3,10 +3,10 @@
     <div class="container my-5">
       <div class="buttons-wrapper">
         <a :href="project.demo" target="_blank" v-show="project.demo">
-          <p class="more px-3 my-5">{{project.button1}}</p>
+          <p class="more px-3 my-5 bg-white">{{project.button1}}</p>
         </a>
         <a :href="project.github" target="_blank" v-show="project.github">
-          <p class="more px-3 my-5">{{project.button2}}</p>
+          <p class="more px-3 my-5 bg-white">{{project.button2}}</p>
         </a>
       </div>
 

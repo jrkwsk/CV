@@ -6,127 +6,143 @@
       </div>
       <div class="secondary-text d-flex justify-content-center align-items-end">
         <h2 class="roles">
-          <p>Developer</p>
-          <p>Designer</p>
-          <p>Project_Manager</p>
-          
+          <span>Developer</span>
+          <span class="dot mb-1"></span>
+
+          <span>Designer</span>
+          <span class="dot mb-1"></span>
+
+          <span>Project Manager</span>
         </h2>
       </div>
-      <div class="d-flex justify-content-center align-items-end m-5">
-        <button type="button" class="show" @click="step++">SHOW</button>
+      <div class="d-flex justify-content-center my-5">
+        <span class="show" @click="step++">I WANT TO SEE MORE</span>
       </div>
     </div>
+    <!-- for scrolling effects -->
     <div class="middle" id="middle"></div>
-    <div class="wrapper-next" v-show="step===2">
-      <p class="document-title">Ula_Jurkowska_CV_late_2020</p>
-      <div class="container">
-        <h4 class="main-skills">
-          <span class="important">VUE CLI</span>,
-          <span class="important">Javascript ES6</span>, HTML, CSS, Bootstrap, JQuery,
-          <span class="important">SASS</span>, Wordpress, WooCommerce,
-          <span class="important">Rest API</span>, GIT, VS Code
-        </h4>
-        <h4 class="secondary-skills mt-5">
-          Photoshop, Ilustrator, inDesign,
-          <span class="important">XD</span>
-        </h4>
-        <h4 class="secondary-skills mt-5">
-          English C1, French C1/B2, Spanish C1/B2
-          <span class="important">&</span> Polish native
-        </h4>
-        <p
-          class="mt-5 about"
-        >I am a Psychologist, Public Relations Manager, Graphic Designer and Web Developer. I speak Polish, English, French and Spanish. I try to make use of my various experiences in web development. I have participated in digital projects from different perspectives - as a user, ordering entity, designer and coder. I believe my past roles give me a broad look on the work of web developer being part of a team that delivers complex services to the client.</p>
-        <p class="mt-5">Current focus on: Vue and Vanilla JS</p>
-        <p class="mt-5">Goals: React, React Native, Angular</p>
-        <div class="d-flex justify-content-center my-5">
-          <div class="hor-line align-center"></div>
-          <span class="scroll mx-2">scroll</span>
-        </div>
-      </div>
-      <br />
 
-      <div class="container-fluid IT-section text-left my-5">
-        <div class="row my-5">
-          <div class="col-2 title">
-            <h1 class="it" id="it" :style="{paddingLeft: textPadding + 'rem'}">IT_Education</h1>
+    <transition name="showstep2">
+      <div class="wrapper-next" v-show="step===2">
+        <!-- <p class="document-title">Ula_Jurkowska_CV_late_2020</p> -->
+
+        <div class="container section-1 d-flex flex-column align-items-stretch mt-5">
+          <h4 class="main-skills h-100">
+            <span class="important">VUE CLI</span>,
+            <span class="important">Javascript ES6</span>, HTML, CSS, Bootstrap, JQuery,
+            <span class="important">SASS</span>, Wordpress, WooCommerce,
+            <span class="important">Rest API</span>, GIT, VS Code
+          </h4>
+          <h4 class="secondary-skills h-100">
+            Photoshop, Ilustrator, inDesign,
+            <span class="important">XD</span>
+          </h4>
+          <h4 class="secondary-skills h-100">
+            English C1, French C1/B2, Spanish C1/B2
+            <span class="important">&</span> Polish native
+          </h4>
+          <p
+            class="about h-100"
+          >I am a Psychologist, a Public Relations Manager, a Graphic Designer and a Web Developer. I speak Polish, English, French and Spanish. I try to make use of my various experiences in web development. I have participated in digital projects from different perspectives - as a user, an ordering entity, a designer and a coder. I believe my past roles give me a broad look on the work of a web developer being part of a team that delivers complex services to the client.</p>
+          <p class="h-100 mt-5">
+            Current focus on: Vue and Vanilla JS
+            <strong class="ml-3">Goals:</strong> React, React Native, Angular
+          </p>
+          <div class="d-flex justify-content-center my-5 h-100">
+            <div class="hor-line align-center"></div>
+            <span class="scroll mx-2" id="scroll">scroll</span>
           </div>
-          <div class="col-6">
-            <div class="basic-info" v-for="value in it" :key="it.position">
-              <span class="start-end">{{value.year}}</span>
-              <br />
-              <span class>{{value.position}} /</span>
-              <br />
-              <span class="important">{{value.company}} /</span>
-              <p class="about">{{value.description}}</p>
+        </div>
+        <br />
+
+        <div class="container-fluid IT-section text-left my-5">
+          <div class="row my-5">
+            <div class="col-2 title">
+              <h1 class="it" id="it" :style="{paddingLeft: textPadding + 'rem'}">IT_Education</h1>
             </div>
-          </div>
-          <div class="col-4 img-wrapper" :style="{paddingTop: imagePadding + 'rem'}">
-            <img class="portrait" src="./assets/portrait.jpg" :style="{opacity: setOpacity}" />
-          </div>
-        </div>
-      </div>
-      <br />
-      <div class="container my-5 text-center projects-sections">
-        <h1>Projects - web</h1>
-        <div class="row">
-          <Project v-for="project in projects" :project="project"></Project>
-        </div>
-      </div>
-      <div class="container my-5 text-center other">
-        <h1>Other coding projects</h1>
-        <div
-          class="text-left d-flex justify-content-around github-sections"
-          v-for="item in github"
-          :key="item.name"
-          
-        >
-          <a :href="item.link" target="_blank" @mouseover="moveDots($event)">
-            <p class="project-name px-3 my-5" >{{item.name}}</p>
-          </a>
-          <span class="dot my-5"></span>
-          <p class="my-5">{{item.description}}</p>
-          <p class="my-5">/</span>
-          <p class="my-5">{{item.stack}}</p>
-        </div>
-      </div>
-      <br />
-      <div class="container experience-section text-left my-5">
-        <h1>Professional Experience</h1>
-        <div class="row my-5">
-          <div class="col-9 offset-3">
-            <div class="basic-info" v-for="value in cv" :key="cv.position">
-              <span class="start-end">{{value.start}} - {{value.end}}</span>
-              <br />
-              <span class>{{value.position}} /</span>
-              <br />
-              <span class="important">{{value.company}} /</span>
-              <span class="minor">{{value.city}}, {{value.country}}</span>
-              <p class="about">{{value.description}}</p>
-              <p class="about">{{value.techStack}}</p>
+            <div class="col-6">
+              <div class="basic-info" v-for="value in it" :key="it.position">
+                <span class="start-end">{{value.year}}</span>
+                <br />
+                <span class>{{value.position}} /</span>
+                <br />
+                <span class="important">{{value.company}} /</span>
+                <p class="about">{{value.description}}</p>
+              </div>
+            </div>
+            <div class="col-4 img-wrapper" :style="{paddingTop: imagePadding + 'rem'}">
+              <img class="portrait" src="./assets/portrait.jpg" :style="{opacity: setOpacity}" />
             </div>
           </div>
         </div>
-      </div>
+        <br />
+        <div class="container my-5 text-center projects-sections">
+          <h1>Projects - web</h1>
+          <div class="row">
+            <Project v-for="project in projects" :project="project"></Project>
+          </div>
+        </div>
+        <div class="container my-5 text-center other">
+          <h1>Other coding projects</h1>
+          <div
+            class="text-left d-flex justify-content-around github-sections"
+            v-for="item in github"
+            :key="item.name"
+          >
+            <a :href="item.link" target="_blank" @mouseover="moveDots($event)">
+              <p class="project-name px-3 my-5">{{item.name}}</p>
+            </a>
+            <span class="dot my-5"></span>
+            <p class="my-5">{{item.description}}</p>
+            <p class="my-5">/</p>
+            <p class="my-5">{{item.stack}}</p>
+          </div>
+        </div>
+        <br />
+        <div class="container experience-section text-left my-5">
+          <h1>Professional Experience</h1>
+          <div class="row my-5">
+            <div class="col-9 offset-3">
+              <div class="basic-info" v-for="value in cv" :key="cv.position">
+                <span class="start-end">{{value.start}} - {{value.end}}</span>
+                <br />
+                <span class>{{value.position}} /</span>
+                <br />
+                <span class="important">{{value.company}} /</span>
+                <span class="minor">{{value.city}}, {{value.country}}</span>
+                <p class="about">{{value.description}}</p>
+                <p class="about">{{value.techStack}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <div class="container-fluid my-5 contact-section">
-        <hr />
-        <div class="row text-left">
-          <div class="col-2 offset-1">
-            <h1 class="contact">Contact</h1>
-          </div>
-          <div class="col-3 offset-1">
-            <ul class="list-unstyled">
-              <li>u.jrkwsk@wp.pl</li>
-            <li>https://github.com/jrkwsk</li><li>https://www.linkedin.com/in/ula-jurkowska-27217830</li>
-            </ul>
-          </div>
-          <div class="col-4 consent">
-            <p class="font-italic">Wyrażam zgodę na przetwarzanie moich danych osobowych przez firmy zarejestrowane w Polsce w celu prowadzenia rekrutacji na stanowisko Frontend Developer lub pokrewne</p>
+        <div class="container-fluid my-5 contact-section">
+          <hr />
+          <div class="row text-left">
+            <div class="col-2 offset-1">
+              <h1 class="contact">Contact</h1>
+            </div>
+            <div class="col-3 offset-1">
+              <a href="u.jrkwsk@wp.pl">
+                <img class="contact m-3" src="./assets/email-24px.svg" alt />
+              </a>
+              <a href="github.com/jrkwsk">
+                <img class="contact m-3" src="./assets/g.png" alt />
+              </a>
+              <a href="linkedin.com/in/ula-jurkowska-27217830">
+                <img class="contact m-3" src="./assets/l.png" alt />
+              </a>
+            </div>
+            <div class="col-4 consent">
+              <p
+                class="font-italic"
+              >Wyrażam zgodę na przetwarzanie moich danych osobowych przez firmy zarejestrowane w Polsce w celu prowadzenia rekrutacji na stanowisko Frontend Developer lub pokrewne</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -520,73 +536,50 @@ $orange: #f2ab59;
 
 //first slaid
 
-div.wrapper-start{
+div.wrapper-start {
   background-color: $color-secondary-4;
-  h2.roles {  background-color: $color-secondary-4;
+  h2.roles {
+    background-color: $color-secondary-4;
 
-  p 
-    {color: $orange}}
+    span {
+      color: $blue;
+      font-size: 2rem;
+    }
+  }
+  div.main-text {
+    height: 40vh;
+  }
+  h1 {
+    font-weight: normal;
+    font-size: 5rem;
+  }
+  h2 {
+    color: $yellow;
+    font-size: 2rem;
+  }
+  span.show {
+    font-family: $font-secondary;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1rem;
+    transition: all 2s;
+    background-color: transparent;
+    border-color: transparent;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 100;
+  }
+
+  span.show:hover {
+    border-bottom: 2px solid $color-primary;
+  }
 }
 
 //second slide
 
-div.main-text {
-  height: 40vh;
-}
-h1 {
-  font-weight: normal;
-  font-size: 4rem;
-}
-
-h2 {
-  color: black;
-  mix-blend-mode: lighten;
-  background-color: white;
-  background-position: center;
-  font-size: 1.3rem;
+div.section-1 {
   width: 100vw;
-  transform: translateY(2%);
-  // box-sizing: border-box;
-  margin: -5px;
-  padding: 5px;
-}
-
-button.show {
-  font-family: $font-secondary;
-  font-weight: 300;
-  font-style: normal;
-  font-size: 0.8rem;
-  transition: all 1s;
-  background-color: transparent;
-  border-radius: 6px;
-  border: 1px solid $color-secondary-3;
-  display: inline-block;
-  cursor: pointer;
-  color: $color-secondary-2;
-  font-size: 15px;
-  font-weight: bold;
-  padding: 1rem 2rem;
-  text-decoration: none;
-}
-
-button.show:hover {
-  background-color: $color-secondary-3;
-  color: $color-secondary-4;
-}
-button.show:active {
-  position: relative;
-  top: 1px;
-}
-
-div.secondary-text {
-  background-image: url(assets/bg_0004.jpg);
-  background-size: 40% 120%;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-span {
-  font-size: 2.5rem;
+  height: 100vh;
 }
 
 h4.main-skills {
@@ -596,6 +589,9 @@ h4.main-skills {
 }
 h4.secondary-skills {
   color: $color-secondary;
+}
+span {
+  font-size: 2.5rem;
 }
 
 span.important {
@@ -612,9 +608,10 @@ div.hor-line {
 span.scroll {
   text-transform: uppercase;
   font-size: 0.8rem;
-  color: $color-secondary-3;
-  font-weight: 100;
+  // color: $blue;
+  font-weight: 500;
   font-family: $font-secondary;
+  // animation: pulse 1s infinite;
 }
 
 h2.roles {
@@ -677,7 +674,7 @@ img.wrapper {
 }
 
 #it {
-  color: pink;
+  color: $blue;
   transform: rotate(90deg);
   font-weight: 700;
   font-size: 3rem;
@@ -713,19 +710,19 @@ h1.it {
 }
 p.document-title {
   position: fixed;
-  top: 0
+  top: 0;
 }
 span.pulse {
   animation: pulse-red 5s infinite;
   transition: all 1s;
 }
 
-h1.contact{
-    color: $color-secondary-2;
+h1.contact {
+  color: $color-secondary-2;
 }
 
 div.consent {
-  color: $color-secondary-3; 
+  color: $color-secondary-3;
 }
 
 @keyframes pulse-red {
@@ -742,6 +739,35 @@ div.consent {
   100% {
     transform: scale(2);
     box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+  }
+}
+//animated slide
+.showstep2-enter-active {
+  animation: shownew 2s;
+}
+
+@keyframes shownew {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  10% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 </style>
